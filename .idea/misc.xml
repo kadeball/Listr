@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bunny/Downloads/Listr/app/src/main/res/drawable/baseline_add_circle_24.xml" value="0.21197916666666666" />
+        <entry key="..\:/Users/bunny/Downloads/Listr/app/src/main/res/drawable/baseline_mood_18.xml" value="0.1962962962962963" />
+        <entry key="..\:/Users/bunny/Downloads/Listr/app/src/main/res/drawable/baseline_sentiment_dissatisfied_24.xml" value="0.1962962962962963" />
+        <entry key="..\:/Users/bunny/Downloads/Listr/app/src/main/res/drawable/ic_menu_camera.xml" value="0.21197916666666666" />
         <entry key="..\:/Users/bunny/Downloads/Listr/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/bunny/Downloads/Listr/app/src/main/res/layout/app_bar_main.xml" value="0.2717391304347826" />
         <entry key="..\:/Users/bunny/Downloads/Listr/app/src/main/res/layout/content_main.xml" value="0.2980072463768116" />

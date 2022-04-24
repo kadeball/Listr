@@ -17,7 +17,7 @@
         tools:layout="@layout/naughty_fragment" />
     <fragment
         android:id="@+id/nav_nice"
-        android:name="com.bignerdranch.android.listr.ui.home.naughty.NaughtyFragment"
+        android:name="com.bignerdranch.android.listr.ui.home.nice.NiceFragment"
         android:label="@string/menu_nice"
         tools:layout="@layout/nice_fragment" />
 </navigation>
