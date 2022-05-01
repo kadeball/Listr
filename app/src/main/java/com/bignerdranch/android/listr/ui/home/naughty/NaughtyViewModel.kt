@@ -1,20 +1,20 @@
 package com.bignerdranch.android.listr.ui.home.naughty
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bignerdranch.android.listr.Person
+import com.bignerdranch.android.listr.ui.home.ListrViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 class NaughtyViewModel : ViewModel() {
 
     private lateinit var firestore: FirebaseFirestore
-    private var person: Person? = null
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is the naughty Fragment"
+        value = "This Naughty List"
     }
-    val text: LiveData<String> = _text
 
     init {
         firestore = initFirestore()
@@ -25,7 +25,7 @@ class NaughtyViewModel : ViewModel() {
     }
 
     internal fun writeToFirestore(person: Person) {
-
+        Log.d(TAG, "In writeToFirestore")
         // Write the data
         val docData = hashMapOf(
             "first" to person.first,
@@ -33,5 +33,26 @@ class NaughtyViewModel : ViewModel() {
         )
         firestore.collection("naughty")
             .add(docData)
+            .addOnSuccessListener { documentReference ->
+                Log.d(TAG, "DocumentSnapshot written with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e->
+                Log.w(TAG, "Error adding document", e)
+            }
     }
+
+    public fun getPeople(callback: (people: List<Person>) -> Unit) {
+        firestore.collection("naughty").get()
+            .addOnSuccessListener { documents ->
+                val people: List<Person> = documents.map { document ->
+                    Person(document.data["first"] as String, document.data["last"] as String)
+                }
+                callback.invoke(people)
+            }
+            .addOnFailureListener { exception ->
+                callback.invoke(listOf())
+            }
+    }
+
+    val text: LiveData<String> = _text
 }
